@@ -99,5 +99,21 @@ namespace la_mia_pizzeria_static.Controllers
 
             return View("Show", updatePizza);
         }
+        public IActionResult DeletePizza(Pizza pizza)
+        {
+
+            return View("DeletePizza", pizza);
+        }
+        [HttpPost]
+        public IActionResult Delete(Pizza pizza)
+        {
+            Pizza updatePizza = pizze.pizzas.Find(x => x.Id == pizza.Id);
+            if (updatePizza.Id == pizza.Id)
+            {
+                var ok = pizze.pizzas.Remove(updatePizza);
+                Console.WriteLine(ok);
+            }
+            return RedirectToAction("Index");
+        }
     }
 }

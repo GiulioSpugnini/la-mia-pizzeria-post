@@ -41,7 +41,7 @@
 	<div class="container">
 		<main role="main" class="pb-3">
 			<div class="text-center">
-				<h1 class="display-4 pb-5">Le pizze piu famose</h1>
+				<h1 class="display-4 pb-5">Le pizze di Giggi</h1>
 				<div><a href="@Url.Action("CreaNuovaPizza", "Pizza")" class="crea-pizza btn-primary btn d-inline">Crea la tua Pizza</a></div>
 				<table class="table">
 					<thead>
@@ -59,7 +59,10 @@
 								<tr>
 									<td>
 										<h4><a href="@Url.Action("Show", "Pizza", new {@item.Id})">@item.Name</a></h4>
-										<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
+										<div>
+											<a class="btn-warning btn d-inline" href="@Url.Action("AggiornaPizza", "Pizza", @item)">Aggiorna</a>
+											<a class="btn-danger btn d-inline" href="@Url.Action("DeletePizza", "Pizza", (Pizza)@item)">Cancella</a>
+										</div>
 									</td>
 									<td>@item.Description</td>
 									<td>@item.Price $</td>
